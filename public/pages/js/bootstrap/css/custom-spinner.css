@@ -1,0 +1,69 @@
+.custom-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 120px;
+  }
+  
+  .erlenmeyer {
+    position: relative;
+    width: 25px;
+    height: 100px;
+    border: 1px solid #000000;
+    border-radius: 0 0 20px 20px;
+    overflow: hidden;
+  }
+  
+  .liquid {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: #009abb;
+    /* background: linear-gradient(180deg, #49ba80 8.12%, #009abb 34.85%, #344da1 62.73%, #b03c96 86.11%); */
+    animation: fill-erlenmeyer 1.5s ease-in-out infinite;
+  }
+  
+  .bubble {
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #b03c96;
+    animation: bubble-rise 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes fill-erlenmeyer {
+    0% {
+      height: 0;
+      background-color: #49ba80;
+    }
+    33% {
+      height: 33%;
+      background-color: #009abb;
+    }
+    66% {
+        height: 66%;
+        background-color: #344da1;
+      }
+    100% {
+      height: 100%;
+      background-color: #b03c96;
+    }
+  }
+  
+  @keyframes bubble-rise {
+    0% {
+      transform: translate(-10px, 0);
+    }
+    50% {
+      transform: translate(0, -10px);
+    }
+    100% {
+      transform: translate(-10px, 0);
+    }
+  }

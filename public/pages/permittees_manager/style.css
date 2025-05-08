@@ -1,0 +1,27 @@
+.participant-logo{
+	width: 66px;
+}
+
+.img-sizer{
+	height: 38px;
+	width: auto;
+}
+
+
+
+.btn-winner{
+ background-color: #cbbd00;
+ 
+}
+
+.btn-winner:hover{
+	background-color: #938902;
+
+
+}
+
+.btn-winner:active{
+	background-color: #e0d103;
+
+
+}

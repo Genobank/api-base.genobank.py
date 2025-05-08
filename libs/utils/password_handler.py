@@ -1,0 +1,18 @@
+from argon2 import PasswordHasher
+from argon2.exceptions import VerifyMismatchError
+
+
+class PasswordHandler:
+    def __init__(self):
+        self.ph = PasswordHasher()
+
+    def hash_password(self, password: str) -> str:
+        return self.ph.hash(password)
+
+    # Verificar una contraseña
+    def verify_password(self, hashed_password: str, plain_password: str) -> bool:
+        try:
+            self.ph.verify(hashed_password, plain_password)
+            return True
+        except VerifyMismatchError:
+            return False
