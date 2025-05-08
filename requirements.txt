@@ -14,7 +14,7 @@ cffi==1.17.1
 charset-normalizer==3.4.2
 cheroot==10.0.1
 CherryPy==18.7.0
-cryptography==37.0.4
+cryptography==44.0.1
 cytoolz==0.12.3
 dnspython==2.2.1
 eth-abi==2.2.0
