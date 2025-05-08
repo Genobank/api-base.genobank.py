@@ -1,8 +1,8 @@
 class settings:
 	# # Custom Provider and executor wallet privet key
-	PROVIDER = "https://avalanche-fuji.infura.io/v3/769961ed279e4e0c848eb1ca3ef42a07"
+	# PROVIDER =  <YOUR PROVIDER>
 	# The private key of your executor wallet must have sufficient funds
-	EXECUTOR_PRIVATE_KEY = "75d38c3079b68b8c9ad030b2688faf7d7951bee72e0fff047c565ad9c5bf3fea"
+	# EXECUTOR_PRIVATE_KEY = <YOUR EXECUTOR WALLET PRIVATE KEY>
 
 	# Biosample Permission Token Cinstructor
 	BPT_NAME = "Biosample Permission Token"
