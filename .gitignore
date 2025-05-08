@@ -1,5 +1,7 @@
 .env
 .env.*
+setup/.env
+setup/.env.*
 storage/
 storage/genotypes/
 __pycache__/
