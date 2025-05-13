@@ -29,6 +29,7 @@ import hmac
 import json
 import os
 from os.path import abspath
+from swagger_ui import api_doc
 
 import cherrypy
 from dotenv import load_dotenv
@@ -160,6 +161,64 @@ class Server():
             return None
 
     cherrypy.tools.CORS = cherrypy.Tool("before_finalize", cors)
+
+
+    @cherrypy.expose
+    @cherrypy.config(**{"tools.CORS.on": True})
+    def api_docs(self):
+        """
+        Endpoint para la documentación de la API usando Swagger UI
+        """
+        # En lugar de usar swagger-ui-py directamente, 
+        # redirigiremos a una página HTML estática
+        
+        # Primero, verifica si el archivo openapi.yaml existe
+        if not os.path.exists("openapi.yaml"):
+            return "Error: No se encontró el archivo openapi.yaml en la raíz del proyecto."
+        
+        # Crear un HTML simple que cargue Swagger UI desde CDN
+        html = """
+        <!DOCTYPE html>
+        <html lang="es">
+        <head>
+            <meta charset="UTF-8">
+            <title>Genobank API Documentation</title>
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.18.3/swagger-ui.css" />
+            <style>
+                html { box-sizing: border-box; overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
+                *, *:before, *:after { box-sizing: inherit; }
+                body { margin: 0; background: #fafafa; }
+                .topbar { display: none; }
+            </style>
+        </head>
+        <body>
+            <div id="swagger-ui"></div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.18.3/swagger-ui-bundle.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.18.3/swagger-ui-standalone-preset.js"></script>
+            <script>
+                window.onload = function() {
+                    const ui = SwaggerUIBundle({
+                        url: "/openapi.yaml",
+                        dom_id: '#swagger-ui',
+                        deepLinking: true,
+                        presets: [
+                            SwaggerUIBundle.presets.apis,
+                            SwaggerUIStandalonePreset
+                        ],
+                        plugins: [
+                            SwaggerUIBundle.plugins.DownloadUrl
+                        ],
+                        layout: "BaseLayout",
+                        displayRequestDuration: true
+                    });
+                    window.ui = ui;
+                };
+            </script>
+        </body>
+        </html>
+        """
+        cherrypy.response.headers['Content-Type'] = 'text/html'
+        return html
 
     @cherrypy.expose
     @cherrypy.config(**{"tools.CORS.on": True})
@@ -1785,8 +1844,15 @@ class AppServerManager(object):
                 "tools.response_headers.on": True,
                 "tools.CORS.on": True,
                 "tools.sessions.timeout": 60 * 60 * 24 * 365,
+            },
+            "/openapi.yaml": {
+                "tools.staticfile.on": True,
+                "tools.staticfile.filename": abspath("./openapi.yaml"),
+                "tools.CORS.on": True,
             }
         }
+
+
         cherrypy.server.socket_host = "0.0.0.0"
         cherrypy.server.socket_port = port
         cherrypy.server.socket_timeout = 60 * 60 * 24 * 365

@@ -1,0 +1,1061 @@
+components:
+  schemas:
+    Error:
+      properties:
+        status:
+          example: Failure
+          type: string
+        status_details:
+          properties:
+            description:
+              description: "Descripci\xF3n detallada del error"
+              type: string
+            message:
+              description: Mensaje de error
+              type: string
+          type: object
+      type: object
+info:
+  description: "API para gesti\xF3n de permisos, perfiles, biosamples y servicios\
+    \ relacionados"
+  title: Genobank API
+  version: 1.0.0
+openapi: 3.0.0
+paths:
+  /adminpage:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro place"
+        in: query
+        name: place
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint adminpage
+  /approve_permittee:
+    post:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro owner"
+        in: query
+        name: owner
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint approve_permittee
+  /biosample_activations:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro params"
+        in: query
+        name: params
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint biosample_activations
+  /biosample_details:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro biosample_serial"
+        in: query
+        name: biosample_serial
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint biosample_details
+  /biosamples:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro params"
+        in: query
+        name: params
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint biosamples
+  /claim:
+    post:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro token_id"
+        in: query
+        name: token_id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint claim
+  /claude_manager:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro section"
+        in: query
+        name: section
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint claude_manager
+  /create_magic_link:
+    post:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro signature"
+        in: query
+        name: signature
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro data"
+        in: query
+        name: data
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint create_magic_link
+  /create_permitee:
+    post:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro id"
+        in: query
+        name: id
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro address"
+        in: query
+        name: address
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro secret"
+        in: query
+        name: secret
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint create_permitee
+  /create_permitee_preregistration:
+    post:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro all_data"
+        in: query
+        name: all_data
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint create_permitee_preregistration
+  /create_profile:
+    post:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro owner"
+        in: query
+        name: owner
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint create_profile
+  /create_token:
+    post:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro metadata"
+        in: query
+        name: metadata
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint create_token
+  /data_exist:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro owner"
+        in: query
+        name: owner
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint data_exist
+  /delete_magic_link:
+    post:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro creator_signature"
+        in: query
+        name: creator_signature
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro link"
+        in: query
+        name: link
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint delete_magic_link
+  /delete_user_file_from_bucket:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro user_sign"
+        in: query
+        name: user_sign
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro path_list"
+        in: query
+        name: path_list
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint delete_user_file_from_bucket
+  /deliveries:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro permittee_id"
+        in: query
+        name: permittee_id
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint deliveries
+  /delivery_biosample:
+    post:
+      description: "Sin descripci\xF3n"
+      parameters: []
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint delivery_biosample
+  /download_ancestry_data:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro user_signature"
+        in: query
+        name: user_signature
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro filename"
+        in: query
+        name: filename
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro _type"
+        in: query
+        name: _type
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint download_ancestry_data
+  /download_file:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro wallet"
+        in: query
+        name: wallet
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro signature"
+        in: query
+        name: signature
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint download_file
+  /download_received_biosample_file:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro signature"
+        in: query
+        name: signature
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro serial"
+        in: query
+        name: serial
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint download_received_biosample_file
+  /download_user_dashboard_file:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro signature"
+        in: query
+        name: signature
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro filename"
+        in: query
+        name: filename
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint download_user_dashboard_file
+  /download_user_file_from_bucket:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro user_sign"
+        in: query
+        name: user_sign
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro path_list"
+        in: query
+        name: path_list
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint download_user_file_from_bucket
+  /download_user_file_from_bucket_from_labdashboard:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro user_sign"
+        in: query
+        name: user_sign
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro path_list"
+        in: query
+        name: path_list
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro biosample_serial"
+        in: query
+        name: biosample_serial
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint download_user_file_from_bucket_from_labdashboard
+  /emit_posp:
+    post:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro metadata"
+        in: query
+        name: metadata
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint emit_posp
+  /find_file:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro signature"
+        in: query
+        name: signature
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint find_file
+  /find_genotypes:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro signature"
+        in: query
+        name: signature
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint find_genotypes
+  /find_genotypes_by_permittee:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro signature"
+        in: query
+        name: signature
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint find_genotypes_by_permittee
+  /find_magic_links:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro creator_signature"
+        in: query
+        name: creator_signature
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint find_magic_links
+  /find_shared_files_by_lab:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro signature"
+        in: query
+        name: signature
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint find_shared_files_by_lab
+  /get_all_pending_permittes:
+    post:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro root_signature"
+        in: query
+        name: root_signature
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint get_all_pending_permittes
+  /get_labs_enabled_to_share:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro signature"
+        in: query
+        name: signature
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro file_hash"
+        in: query
+        name: file_hash
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint get_labs_enabled_to_share
+  /get_my_uploaded_file_list:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro user_signature"
+        in: query
+        name: user_signature
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint get_my_uploaded_file_list
+  /get_my_uploaded_files_urls:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro user_signature"
+        in: query
+        name: user_signature
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint get_my_uploaded_files_urls
+  /get_owner_details:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro owner_address"
+        in: query
+        name: owner_address
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint get_owner_details
+  /get_permitte_tree_bucket:
+    post:
+      description: "Sin descripci\xF3n"
+      parameters: []
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint get_permitte_tree_bucket
+  /get_permittee_requests:
+    post:
+      description: "Sin descripci\xF3n"
+      parameters: []
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint get_permittee_requests
+  /get_posp_token:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro lab_address"
+        in: query
+        name: lab_address
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro user_address"
+        in: query
+        name: user_address
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint get_posp_token
+  /get_presigned_link:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters: []
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint get_presigned_link
+  /get_serial_permittee_by_address:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro address"
+        in: query
+        name: address
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint get_serial_permittee_by_address
+  /get_shares_by_filehash:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro signature"
+        in: query
+        name: signature
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro filehash"
+        in: query
+        name: filehash
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint get_shares_by_filehash
+  /get_user_balance:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro user_address"
+        in: query
+        name: user_address
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint get_user_balance
+  /index:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters: []
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint index
+  /login:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro user_sign"
+        in: query
+        name: user_sign
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint login
+  /manager_dashboard:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro section"
+        in: query
+        name: section
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint manager_dashboard
+  /open_user_bucket_folder:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro user_sign"
+        in: query
+        name: user_sign
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro folder_path"
+        in: query
+        name: folder_path
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro biosample_serial"
+        in: query
+        name: biosample_serial
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro source"
+        in: query
+        name: source
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint open_user_bucket_folder
+  /permittees:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro serial"
+        in: query
+        name: serial
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint permittees
+  /profiles:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro serial"
+        in: query
+        name: serial
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint profiles
+  /received_biosample_files:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro signature"
+        in: query
+        name: signature
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint received_biosample_files
+  /reject_permittee:
+    post:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro owner"
+        in: query
+        name: owner
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint reject_permittee
+  /revoke_consents:
+    post:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro signature"
+        in: query
+        name: signature
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro permittee"
+        in: query
+        name: permittee
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint revoke_consents
+  /share_file:
+    post:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro signature"
+        in: query
+        name: signature
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro data"
+        in: query
+        name: data
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint share_file
+  /shop_manager:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters: []
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint shop_manager
+  /upload_dataset_chunk:
+    post:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro chunk"
+        in: query
+        name: chunk
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro chunkNumber"
+        in: query
+        name: chunkNumber
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro totalChunks"
+        in: query
+        name: totalChunks
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro data"
+        in: query
+        name: data
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint upload_dataset_chunk
+  /upload_to_user_bucket:
+    post:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro user_sign"
+        in: query
+        name: user_sign
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro biosample_serial"
+        in: query
+        name: biosample_serial
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro destination_path"
+        in: query
+        name: destination_path
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro source"
+        in: query
+        name: source
+        required: true
+        schema:
+          type: string
+      - description: "Par\xE1metro file"
+        in: query
+        name: file
+        required: false
+        schema:
+          type: string
+      - description: "Par\xE1metro source_path_list"
+        in: query
+        name: source_path_list
+        required: false
+        schema:
+          type: string
+      - description: "Par\xE1metro method"
+        in: query
+        name: method
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint upload_to_user_bucket
+  /validate_permittee:
+    get:
+      description: "Sin descripci\xF3n"
+      parameters:
+      - description: "Par\xE1metro permittee"
+        in: query
+        name: permittee
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint validate_permittee
+  /verify_dataset_status:
+    post:
+      description: "Sin descripci\xF3n"
+      parameters: []
+      responses:
+        '200':
+          description: "Operaci\xF3n exitosa"
+        '500':
+          description: Error interno del servidor
+      summary: Endpoint verify_dataset_status
+servers:
+- description: Servidor de desarrollo
+  url: http://localhost:8080
