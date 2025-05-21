@@ -145,3 +145,15 @@ http://localhost:8081/find_genotypes?owner=
 
 ```
 `owner`: public address of the user's wallet
+
+
+## Docs
+
+```sh
+pip install -r requirements.txt
+```
+Once the API is running, open in your browser:
+
+```sh
+https://<DOMAIN>/api-docs
+```
