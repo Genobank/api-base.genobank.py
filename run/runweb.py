@@ -236,45 +236,6 @@ class Server():
     @cherrypy.expose
     @cherrypy.config(**{"tools.CORS.on": True})
     @cherrypy.tools.allow(methods=["GET"])
-    def adminpage(self, place=None):
-        if place == None or place == "test":
-            t = self.mylookup.get_template("adminpage.mako")
-            return t.render(plc="AdminPage", env=os.getenv("FRONT_ENV"))
-        elif place == "permittee" or place == "test-permittee":
-            t = self.mylookup.get_template("adminpage.mako")
-            return t.render(plc="Permittee", env=os.getenv("FRONT_ENV"))
-        elif place == "profile" or place == "test-profile":
-            t = self.mylookup.get_template("profiles.mako")
-            return t.render(plc="Profiles", env=os.getenv("FRONT_ENV"))
-
-    @cherrypy.expose
-    @cherrypy.config(**{"tools.CORS.on": True})
-    @cherrypy.tools.allow(methods=["GET"])
-    def manager_dashboard(self, section=None):
-        t = self.mylookup.get_template("/permittees_manager/aprove_perm.mako")
-        msg = self.signature_service.get_root_message()
-        return t.render(api_msg=msg, env=os.getenv("FRONT_ENV"))
-    
-
-    @cherrypy.expose
-    @cherrypy.config(**{"tools.CORS.on": True})
-    @cherrypy.tools.allow(methods=["GET"])
-    def claude_manager(self, section=None):
-        t = self.mylookup.get_template("/claude_manager/claude_manager.mako")
-        msg = self.signature_service.get_root_message()
-        return t.render(api_msg=msg, env=os.getenv("FRONT_ENV"))
-
-    @cherrypy.expose
-    @cherrypy.config(**{"tools.CORS.on": True})
-    @cherrypy.tools.allow(methods=["GET"])
-    def shop_manager(self):
-        t = self.mylookup.get_template("/shop_manager/shop_manager.mako")
-        msg = self.signature_service.get_root_message()
-        return t.render(api_msg=msg, env=os.getenv("FRONT_ENV"))
-
-    @cherrypy.expose
-    @cherrypy.config(**{"tools.CORS.on": True})
-    @cherrypy.tools.allow(methods=["GET"])
     @cherrypy.tools.json_out()
     def login(self, user_sign):
         try:
