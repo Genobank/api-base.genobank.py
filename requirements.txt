@@ -54,7 +54,7 @@ propcache==0.2.0
 protobuf==3.20.3
 pycparser==2.22
 pycryptodome==3.22.0
-pymongo==4.1.1
+pymongo==4.6.3
 python-dateutil==2.9.0.post0
 python-dotenv==0.20.0
 PyYAML==6.0.2
