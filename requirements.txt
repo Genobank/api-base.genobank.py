@@ -17,7 +17,7 @@ CherryPy==18.7.0
 cryptography==37.0.4
 cytoolz==0.12.3
 dnspython==2.2.1
-eth-abi==2.2.0
+eth-abi==5.0.1
 eth-account==0.5.9
 eth-hash==0.3.3
 eth-keyfile==0.5.1
