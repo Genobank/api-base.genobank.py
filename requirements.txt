@@ -68,7 +68,7 @@ swagger-ui-py==23.9.23
 tempora==5.7.1
 toolz==1.0.0
 typing-extensions==4.13.2
-urllib3==1.26.20
+urllib3==2.6.0
 varint==1.0.2
 web3==5.30.0
 websockets==9.1
